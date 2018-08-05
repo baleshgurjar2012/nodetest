@@ -11,15 +11,15 @@ res.json(contact);
 
 router.post('/contact',(req,res,next)=>{
 let newContact=new Contact({
-    first_name:req.body.first_name,
-    last_name:req.body.last_name,
-    phonenumber:req.body.phonenumber
+    firstname:req.body.firstname,
+    lastname:req.body.lastname,
+    phone:req.body.phone
 });
-
-newContact.save((err,contact)=>{
-    if(err)
+console.log('newContact',newContact);
+newContact.save(function(error){
+    if(error)
     {
-        res.json({msg:'failed to add contact'});
+        res.json({msg:'failed to add contact'+ error});
     }else{
         res.json({msg:'contact added sucessfully'});
         

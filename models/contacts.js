@@ -3,10 +3,10 @@ const mongoose=require('mongoose');
 
 const ContactSchema = mongoose.Schema({
 
-    first_name:  { type: String, required: true },
-    last_name:   { type: String, required: true },
-    phonenumber: { type: String, required: true }   
+    firstname:  { type: String },
+    lastname:   { type: String},
+    phone: { type: String }   
 });
 
 
-const contact=module.exports =mongoose.model('Contact',ContactSchema);
+module.exports =mongoose.model('ContactInfo',ContactSchema);

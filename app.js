@@ -35,27 +35,8 @@ console.log('server started at port:',port);
 })
 
 //connect to mongoose db
-//mongoose.connect('mongodb://localhost:27017/contactlist', { useNewUrlParser: true });
 mongoose.connect("mongodb://localhost:27017/contactlist", { useNewUrlParser: true }, function(err, db) {
   if(!err) {
     console.log("We are connected");
-      db.collection('Contact').insertOne({
-        "first_name":"balesh",
-            "last_name":"kumar",
-        "phonenumber":"4545464",
-    
-    },function(err,result){
-        
-          db.close();
-      })
-    
   }
 });
-// mongoose.connection.on('connect',()=>{
-// console.log('connected to mongodb');
-// });
-// mongoose.connection.on('error',(err)=>{
-//     if(err){
-//         console.log('error in db',err);
-//     }
-//     });
