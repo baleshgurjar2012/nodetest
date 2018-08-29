@@ -10,6 +10,10 @@ var path=require('path');
 
 var app=express();
 var route=require('./routes/route');
+//var indexRouter = require('./routes/index');
+//var usersRouter = require('./routes/users');
+var catalogRouter = require('./routes/catalog'); 
+
 var port=3000;
 
 
@@ -25,7 +29,13 @@ app.use(bodyparser.json());
 app.use(express.static(path.join(__dirname,'public')));
 
 //route
-app.use('/api',route);
+//app.use('/',route);
+//app.use('/', indexRouter);
+//app.use('/users', usersRouter);
+app.use('/api', catalogRouter);  // Add catalog routes to middleware chain.
+
+
+
 //testing server
 app.get('/',(req,res)=>{
     res.send('footer');
